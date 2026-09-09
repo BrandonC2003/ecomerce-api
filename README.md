@@ -15,7 +15,7 @@ API REST para administrar productos, registrar clientes, crear órdenes y proces
 ### 1. Clonar el repositorio
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/BrandonC2003/ecomerce-api.git
 cd ecomerce-api
 ```
 
