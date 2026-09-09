@@ -44,7 +44,10 @@ class AuthController extends Controller
     )]
     public function store(RegistrarUsuarioRequest $request): JsonResponse
     {
-        $userData = $request->only(['name', 'email', 'password', 'role']);
+        $userData = [
+            ...$request->validated(),
+            'role' => 'customer',
+        ];
 
         $user = User::create($userData);
 

@@ -11,7 +11,10 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:api')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::apiResource('products', ProductController::class);
+    Route::apiResource('products', ProductController::class)->only(['index', 'show']);
+    Route::apiResource('products', ProductController::class)
+        ->except(['index', 'show'])
+        ->middleware('admin');
     Route::get('/orders', [OrderController::class, 'index']);
     Route::post('/orders', [OrderController::class, 'store']);
     Route::get('/orders/{order}', [OrderController::class, 'show']);
